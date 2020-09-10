@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestaurantTracker.Data;
 
 namespace RestaurantTracker.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200910150902_SeedWaiter")]
+    partial class SeedWaiter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,20 +239,6 @@ namespace RestaurantTracker.Data.Migrations
                     b.HasIndex("WaiterId");
 
                     b.ToTable("Table");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Table 1",
-                            WaiterId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Table 2",
-                            WaiterId = 2
-                        });
                 });
 
             modelBuilder.Entity("RestaurantTracker.Models.Waiter", b =>
